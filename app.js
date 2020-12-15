@@ -4,10 +4,10 @@ const hbs = require('hbs');
 
 const geocode = require('./utils/geocode');
 const forecast =  require('./utils/forecast');
-const { response } = require('express');
 
 
 const app = express();
+const port = process.env.PORT || 8000
 
 // Define paths for Express Config
 const publicDirectoryPath = path.join(__dirname, 'public');
@@ -31,7 +31,7 @@ app.get('', (req,res) => {
 
 app.get('/about', (req,res) => {
     res.render('about', {
-        title: 'About Me',
+        title: 'About',
         name: 'Prabh Singh'
     })
 })
@@ -39,7 +39,7 @@ app.get('/about', (req,res) => {
 app.get('/help', (req,res) => {
     res.render('help', {
         title: 'Help Page',
-        message: 'Please contact the IT support team at itsupport@solve.com',
+        message: 'For any Issues and Concerns, Please contact me at prabhsimran29@gmail.com ',
         name: 'Prabh Singh'
     })
 })
@@ -92,7 +92,7 @@ app.get('*', (req,res) => {
     })
 })
 
-app.listen(8000, () => {
-    console.log('Server is up on port 8000')
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
 });
 
